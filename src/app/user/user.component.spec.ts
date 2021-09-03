@@ -32,4 +32,13 @@ describe('UserComponent', () => {
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('p').textContent).toContain(app.user.name);
   })
+
+  it('should\'n display the user name if user isn\'t logged in', () => {
+    let fixture = TestBed.createComponent(UserComponent);
+    let app = fixture.debugElement.componentInstance;
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain('Please log in first');
+  })
+
 });
